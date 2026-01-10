@@ -1,131 +1,728 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>鸿志数科 双数字人直播教程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #2980b9;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+            line-height: 1.4;
+        }
+        
+        .content {
+            font-size: 17px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .steps {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .step {
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .important {
+            background-color: #fff9e6;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .note {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .link-box {
+            background-color: #e8f4fc;
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+        
+        .link-box a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .template-box {
+            background-color: #f9f9f9;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .template-title {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .content {
+                font-size: 16px;
+            }
+            
+            .steps {
+                margin-left: 10px;
+            }
+            
+            .step-number {
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                font-size: 14px;
+            }
+            
+            .important, .note, .link-box, .template-box {
+                padding: 12px;
+            }
+            
+            .code-block {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .content {
+                font-size: 15px;
+            }
+            
+            .step {
+                margin-bottom: 12px;
+            }
+        }
+        
+        /* 打印优化 */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .image-container img {
+                max-width: 80%;
+            }
+        }
+    </style>
 </head>
 <body>
-   <p> 第一步： 安装软件与插件<br>
-
-    软件安装：通过百度网盘分享的文件：hongzhishuke.zip<br>
-
-    链接:  <a href="https://pan.baidu.com/s/1pn1qw8C8DQCyX1YZEtLJCA">https://pan.baidu.com/s/1pn1qw8C8DQCyX1YZEtLJCA</a>提取码: dnrk 
---来自百度网盘超级会员v2的分享<br>
-<img src="pig/百度网盘.png" width="400" height="400" /><br>
-    插件安装：进入系统，选择路径hongzhishuke/里的一键安装插件.exe <img src="pig/一键安装插件.png" width="100" height="20" /> <br>
-点击安装虚拟麦克风,再次点击Install Driver 安装虚拟虚拟麦克风<br> <img src="pig/安装虚拟麦克风.png" width="800" height="400" /><br>
-安装好虚拟麦克风后依次点击 安装虚拟摄像头 安装chrome浏览器 关闭防火墙 安装.Net插件 安装Web View插件<br>
-安装成功后文本会全部显示绿色：<img src="pig/插件安装成功.png" width="400" height="600" /></p><br>
-
-<p1>第二步：启动软件<br>
-    找到hongzhishuke文件夹里的数字人直播.exe<img src="pig/数字人直播.png" width="100" height="20" /> 双击点击或右键打开软件<br>
-
-    进入软件后会进入到登入注册界面：<br><img src="pig/登入界面.PNG" width="800" height="400" /><br>
-
-    第三步：使用软件<br>
-    形象克隆：<br>进入形象管理页面，视频文件（选择需要克隆形象的视频素材），模特名称（命名形象名字），点击开始克隆，耐心等待克隆完成，过程中不要关闭软件。<br>
-     <img src="pig/克隆形象.png" width="800" height="500" /><br>
-
-    克隆声音：<br>进入声音管理页面，选择音频文件（选择需要克隆的音频文件），声音名称（命名克隆声音名字），克隆模式 标准克隆（按钮关）极速克隆（按钮打开），音色训练轮次（改成8），韵律训练轮次（改成100）<br>
-    点击开始克隆，耐心等待克隆完成，过程中不要关闭软件。
-    克隆时长与训练模式有关。<br>
-    <img src="pig/声音克隆.png" width="600" height="1100" /><br><br>
-
-    直播间创建：<br>克隆完形象与声音后 点击标题直播间，选择+新建直播间 ，创建想要搭建平台的直播间<br>
-    <img src="pig/新建直播间.png" width="900" height="200" />
-    <br>
-    选择好直播平台，带货品类，直播类型，语种选择，直播间标题后点击创建直播<br>
-    <img src="pig/创建直播间.png" width="400" height="900" /><br>
-    直播间创建成功后，选择右边操作里的进入直播间。<br>
-     <img src="pig/进入直播间.png" width="900" height="250" /><br>
-
-     进入以下界面，我将以快手团购直播为例子展示双数字人直播间的手动搭建：<br>
-     <img src="pig/选择形象.png" width="800" height="400" /><br>
-     <br>
-
-     选择好形象后：1.点击话术驱动模式里的 AI话术驱动  2.选择声音模型  3.驱动模式选择对应的双数字人驱动<br>
-      <img src="pig/1-3.png" width="800" height="550" /><br>
-
-     接着往下滑: 4.选择视频文件（双人绿幕素材） 5.选择主播声音  6.选择助播的声音 
-     7.设置好数字人的语速 8.打开动作泛化 与 多姿态模式<br>
-     <img src="pig/步骤4-8.png" width="800" height="600" /><br>
-
-     数字人形象与声音设置好后：1.点击左边板块的只能话术 2.点击+添加商品<br>
-     <img src="pig/话术1-2.png" width="800" height="400" /><br>
-     
-     3.输入商品的详细信息  4.点击确认保存<br>
-     <img src="pig/话术3-4.png" width="800" height="500" /><br>
-
-     5.点击左边功能板块的 智能互动 6.选择互动配置 7.在AI主播人设里 填入主播人设词设置主播人设<br>
-     <img src="pig/主播人设5-7.png" width="800" height="500" /><br>
-
-     设置好主播人设后：回到智能话术1.点击生成双数字人剧本话术 2.依次点击生成到一万字 3.点击全局AI泛化句子 4.点击全局AI泛化近义词 5.点击一键去除违禁词<br>
-     <img src="pig/生成话术.png" width="1200" height="800" /><br><br><br>
-     以下是模板：<br><br>
-
-     这里是双数字人话术模版：(以三品王产品为例子   助播的话用{助：话术}的格式)<br>
-     亲爱的家人们,今儿给咱吃货宝宝们带硬货来啦——三品王的三款超值牛肉粉套餐，不管爱喝汤还是爱干拌，总有一款戳中你，直播间专属价超划算，管饱还解馋！<br>
-     {助:那可不！老粉都知道三品王的粉，吃一次就上瘾，今儿这价格闭眼冲不亏！}没点关注的家人们赶紧点点关注，关注主播不迷路，好吃的福利天天有！
-     新粉点完关注记得在扣个“想吃”，让主播看到你们的热情！<br><br>
-
-     智能互动主播人设设置模版：<br>
-     请用口语化生活化话术进行直播，语气要激动。生成的话术不要带有功能功效性的介绍，直播过程中不要说任何带有功能功效性的词语，直播过程中不要说包赔，赔偿等相关词语，<br>
-     直播过程中请不要使用限时、限量、售空的营销话术，不要营造紧张氛围吸引用户下单，不要履行承诺，不要影响用户购物体验，直播过程请宣传真实的库存信息，避免虚假营造紧张氛围，<br>
-     直播过程中不要说先付后用，直播过程中不要说好运气、好运、转运、招财和一些封建迷信的词语<br>
-     <img src="pig/人设模版.png" width="1280" height="300" /><br><br><br>
-
+    <div class="container">
+        <h1>鸿志数科 双数字人直播教程</h1>
+        <p class="subtitle">详细步骤指南 - 从安装到直播全流程</p>
+        
+        <div class="section">
+            <div class="section-title">第一步：安装软件与插件</div>
+            <div class="content">
+                1. 软件安装：通过百度网盘下载安装包
+            </div>
+            
+            <div class="link-box">
+                百度网盘链接: 
+                <a href="https://pan.baidu.com/s/1pn1qw8C8DQCyX1YZEtLJCA" target="_blank">
+                    https://pan.baidu.com/s/1pn1qw8C8DQCyX1YZEtLJCA
+                </a><br>
+                提取码: dnrk<br>
+                <small>--来自百度网盘超级会员v2的分享</small>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/百度网盘.png" alt="百度网盘下载界面">
+                <div class="image-caption">百度网盘下载界面</div>
+            </div>
+            
+            <div class="content">
+                2. 插件安装：进入系统，选择路径 <strong>hongzhishuke/</strong> 里的 <strong>一键安装插件.exe</strong>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/一键安装插件.png" alt="一键安装插件">
+                <div class="image-caption">一键安装插件</div>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    点击安装虚拟麦克风
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    再次点击Install Driver安装虚拟麦克风
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/安装虚拟麦克风.png" alt="安装虚拟麦克风">
+                <div class="image-caption">安装虚拟麦克风界面</div>
+            </div>
+            
+            <div class="content">
+                3. 安装好虚拟麦克风后依次点击：
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>安装虚拟摄像头</div>
+                <div class="step"><span class="step-number">2</span>安装chrome浏览器</div>
+                <div class="step"><span class="step-number">3</span>关闭防火墙</div>
+                <div class="step"><span class="step-number">4</span>安装.Net插件</div>
+                <div class="step"><span class="step-number">5</span>安装Web View插件</div>
+            </div>
+            
+            <div class="content">
+                4. 安装成功后文本会全部显示绿色：
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/插件安装成功.png" alt="插件安装成功">
+                <div class="image-caption">插件安装成功界面</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">第二步：启动软件</div>
+            <div class="content">
+                1. 找到 <strong>hongzhishuke文件夹</strong> 里的 <strong>数字人直播.exe</strong>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/数字人直播.png" alt="数字人直播.exe">
+                <div class="image-caption">数字人直播.exe文件</div>
+            </div>
+            
+            <div class="content">
+                2. 双击点击或右键打开软件，进入登录注册界面：
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/登入界面.PNG" alt="登录界面">
+                <div class="image-caption">软件登录界面</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">第三步：使用软件</div>
+            
+            <div class="content">
+                <strong>形象克隆：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    进入形象管理页面
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    视频文件（选择需要克隆形象的视频素材）
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    模特名称（命名形象名字）
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    点击开始克隆，耐心等待克隆完成，过程中不要关闭软件
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/克隆形象.png" alt="克隆形象界面">
+                <div class="image-caption">形象克隆界面</div>
+            </div>
+            
+            <div class="note">
+                <strong>注意：</strong>克隆过程中不要关闭软件，耐心等待克隆完成。
+            </div>
+            
+            <div class="content">
+                <strong>克隆声音：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>进入声音管理页面</div>
+                <div class="step"><span class="step-number">2</span>选择音频文件（选择需要克隆的音频文件）</div>
+                <div class="step"><span class="step-number">3</span>声音名称（命名克隆声音名字）</div>
+                <div class="step"><span class="step-number">4</span>克隆模式：标准克隆（按钮关）或 极速克隆（按钮打开）</div>
+                <div class="step"><span class="step-number">5</span>音色训练轮次（改成8）</div>
+                <div class="step"><span class="step-number">6</span>韵律训练轮次（改成100）</div>
+                <div class="step"><span class="step-number">7</span>点击开始克隆，耐心等待克隆完成</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/声音克隆.png" alt="声音克隆界面">
+                <div class="image-caption">声音克隆界面</div>
+            </div>
+            
+            <div class="note">
+                <strong>提示：</strong>克隆时长与训练模式有关，克隆过程中不要关闭软件。
+            </div>
+            
+            <div class="content">
+                <strong>直播间创建：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>克隆完形象与声音后点击标题直播间</div>
+                <div class="step"><span class="step-number">2</span>选择+新建直播间</div>
+                <div class="step"><span class="step-number">3</span>创建想要搭建平台的直播间</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/新建直播间.png" alt="新建直播间">
+                <div class="image-caption">新建直播间</div>
+            </div>
+            
+            <div class="content">
+                4. 选择好直播平台、带货品类、直播类型、语种选择、直播间标题后点击创建直播
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/创建直播间.png" alt="创建直播间">
+                <div class="image-caption">创建直播间界面</div>
+            </div>
+            
+            <div class="content">
+                5. 直播间创建成功后，选择右边操作里的进入直播间
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/进入直播间.png" alt="进入直播间">
+                <div class="image-caption">进入直播间选项</div>
+            </div>
+            
+            <div class="important">
+                <strong>示例：</strong>以下将以快手团购直播为例子展示双数字人直播间的手动搭建
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/选择形象.png" alt="选择形象界面">
+                <div class="image-caption">选择形象界面</div>
+            </div>
+            
+            <div class="content">
+                <strong>选择好形象后：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>点击话术驱动模式里的 AI话术驱动</div>
+                <div class="step"><span class="step-number">2</span>选择声音模型：
+                    <ul style="margin-left: 20px; margin-top: 5px;">
+                        <li>超拟真模型 与 超拟真_极速版模型：针对低配置电脑</li>
+                        <li>超拟真模型_v2：声音效果更生动，针对高性能设备</li>
+                    </ul>
+                </div>
+                <div class="step"><span class="step-number">3</span>驱动模式选择对应的双数字人驱动</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/1-3.png" alt="步骤1-3设置">
+                <div class="image-caption">步骤1-3设置</div>
+            </div>
+            
+            <div class="content">
+                <strong>接着往下滑进行以下设置：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">4</span>选择视频文件（双人绿幕素材）<br><small>注意：绿幕素材人物 - 主播形象要放在视频左边，助播形象放在视频右边（主播的右边）</small></div>
+                <div class="step"><span class="step-number">5</span>选择主播声音</div>
+                <div class="step"><span class="step-number">6</span>选择助播的声音</div>
+                <div class="step"><span class="step-number">7</span>设置好数字人的语速</div>
+                <div class="step"><span class="step-number">8</span>打开动作泛化与多姿态模式</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/步骤4-8.png" alt="步骤4-8设置">
+                <div class="image-caption">步骤4-8设置</div>
+            </div>
+            
+            <div class="content">
+                <strong>数字人形象与声音设置好后：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>点击左边板块的智能话术</div>
+                <div class="step"><span class="step-number">2</span>点击+添加商品</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/话术1-2.png" alt="智能话术设置1-2">
+                <div class="image-caption">智能话术设置步骤1-2</div>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">3</span>输入商品的详细信息</div>
+                <div class="step"><span class="step-number">4</span>点击确认保存</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/话术3-4.png" alt="智能话术设置3-4">
+                <div class="image-caption">智能话术设置步骤3-4</div>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">5</span>点击左边功能板块的智能互动</div>
+                <div class="step"><span class="step-number">6</span>选择互动配置</div>
+                <div class="step"><span class="step-number">7</span>在AI主播人设里填入主播人设词设置主播人设</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/主播人设5-7.png" alt="主播人设设置5-7">
+                <div class="image-caption">主播人设设置步骤5-7</div>
+            </div>
+            
+            <div class="content">
+                <strong>设置好主播人设后，回到智能话术：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>点击生成双数字人剧本话术</div>
+                <div class="step"><span class="step-number">2</span>依次点击生成到一万字</div>
+                <div class="step"><span class="step-number">3</span>点击全局AI泛化句子</div>
+                <div class="step"><span class="step-number">4</span>点击全局AI泛化近义词</div>
+                <div class="step"><span class="step-number">5</span>点击一键去除违禁词</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/生成话术.png" alt="生成话术">
+                <div class="image-caption">生成话术操作界面</div>
+            </div>
+            
+            <div class="template-box">
+                <div class="template-title">双数字人话术模板（以三品王产品为例）：</div>
+                <div class="code-block">
+                    亲爱的家人们,今儿给咱吃货宝宝们带硬货来啦——三品王的三款超值牛肉粉套餐，不管爱喝汤还是爱干拌，总有一款戳中你，直播间专属价超划算，管饱还解馋！<br><br>
+                    {助:那可不！老粉都知道三品王的粉，吃一次就上瘾，今儿这价格闭眼冲不亏！}没点关注的家人们赶紧点点关注，关注主播不迷路，好吃的福利天天有！<br>
+                    新粉点完关注记得在扣个"想吃"，让主播看到你们的热情！
+                </div>
+                <div class="note">
+                    <strong>格式说明：</strong>助播的话用{助：话术}的格式
+                </div>
+            </div>
+            
+            <div class="template-box">
+                <div class="template-title">智能互动主播人设设置模板：</div>
+                <div class="content">
+                    请用口语化生活化话术进行直播，语气要激动。生成的话术不要带有功能功效性的介绍，直播过程中不要说任何带有功能功效性的词语，直播过程中不要说包赔，赔偿等相关词语，<br><br>
+                    直播过程中请不要使用限时、限量、售空的营销话术，不要营造紧张氛围吸引用户下单，不要履行承诺，不要影响用户购物体验，直播过程请宣传真实的库存信息，避免虚假营造紧张氛围，<br><br>
+                    直播过程中不要说先付后用，直播过程中不要说好运气、好运、转运、招财和一些封建迷信的词语
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/人设模版.png" alt="人设模板">
+                <div class="image-caption">人设模板示例</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">第四步：开始直播</div>
+            <div class="important">
+                <strong>示例：</strong>以下以快手平台为例演示两种直播方式
+            </div>
+            
+            <div class="content">
+                <strong>方式一：窗口直播</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>回到模特配置，选择输出模式，点击输出到桌面窗口</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/输出到窗口.png" alt="输出到桌面窗口">
+                <div class="image-caption">输出到桌面窗口设置</div>
+            </div>
+            
+            <div class="note">
+                <strong>提示：</strong>操作到这里已经完成了搭建直播间的三个要素：人物形象、人物声音、直播话术。点击标题模块上的保存与开始直播即可。
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/保存开始直播.png" alt="保存开始直播">
+                <div class="image-caption">保存并开始直播按钮</div>
+            </div>
+            
+            <div class="content">
+                启动直播后会弹出数字人窗口并开始讲解话术。
+            </div>
+            
+            <div class="content">
+                <strong>打开快手直播伴侣：</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>选择直播场景</div>
+                <div class="step"><span class="step-number">2</span>点击添加素材</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/快手1-2.png" alt="快手直播伴侣设置1-2">
+                <div class="image-caption">快手直播伴侣设置步骤1-2</div>
+            </div>
+            
+            <div class="content">
+                3. 选择添加窗口，找到生成好的数字人窗口
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/选择添加窗口.png" alt="选择添加窗口">
+                <div class="image-caption">选择添加窗口</div>
+            </div>
+            
+            <div class="content">
+                <strong>方式二：虚拟摄像头直播</strong>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">1</span>回到模特配置，选择输出模式，点击输出到虚拟摄像头</div>
+            </div>
+            
+            <div class="image-container">
+                <img src="pig/输出到虚拟摄像头.png" alt="输出到虚拟摄像头">
+                <div class="image-caption">输出到虚拟摄像头设置</div>
+            </div>
+            
+            <div class="steps">
+                <div class="step"><span class="step-number">2</span>点击标题模块上的保存与开始直播</div>
+                <div class="step"><span class="step-number">3</span>打开快手直播伴侣：选择直播场景 → 点击添加素材</div>
+                <div class="step"><span class="step-number">4</span>选择添加虚拟摄像头，选择c920</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">第五步：弹幕捕获</div>
+            <div class="content">
+                弹幕捕获功能需要根据具体直播平台进行配置。一般来说，需要在直播软件中开启弹幕显示功能，并确保数字人直播软件能够接收到弹幕信息。
+            </div>
+            
+            <div class="note">
+                <strong>提示：</strong>不同直播平台的弹幕捕获设置方式可能不同，请参考对应平台的具体教程进行设置。
+            </div>
+        </div>
+        
+        <div class="section" style="border-bottom: none; margin-bottom: 20px; padding-bottom: 0;">
+            <div class="section-title">总结与提示</div>
+            <div class="important">
+                <strong>重要提示：</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>确保电脑满足软件运行的最低配置要求</li>
+                    <li>克隆过程中不要关闭软件，避免数据丢失</li>
+                    <li>直播前测试所有设置，确保音频、视频正常工作</li>
+                    <li>遵守各直播平台规则，避免使用违禁词</li>
+                    <li>定期更新软件版本，获取最新功能</li>
+                </ul>
+            </div>
+            
+            <div class="content" style="text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 14px;">
+                鸿志数科双数字人直播教程 © 2023<br>
+                本教程会持续更新，请关注官方最新版本
+            </div>
+        </div>
+    </div>
     
-     开始直播
-     我以快手平台为例<br>
-     窗口直播:回到模特配置，选择输出模式 点击输出到桌面窗口<br>
-     <img src="pig/输出到窗口.png" width="800" height="500" /><br>
-
-     操作到这里已经完成了搭建直播间的三个要素  人物形象 人物声音 直播话术，点击标题模块上的保存与开始直播即可。<br>
-     <img src="pig/保存开始直播.png" width="900" height="150" /><br>
-     
-     
-     启动直播后会弹出数字人窗口并开始讲解话术。
-     
-     <br>打开快手直播伴侣:1.选择直播场景 2.点击添加素材  <br>
-     <img src="pig/快手1-2.png" width="800" height="500" /><br>
-     选择添加窗口 找到生成好的数字人窗口<br>
-     <img src="pig/选择添加窗口.png" width="600" height="500" /><br><br>
-
-     虚拟摄像头直播：回到模特配置，选择输出模式，点击输出到虚拟摄像头<br>
-     <img src="pig/输出到虚拟摄像头.png" width="800" height="500" /><br>
-
-     点击标题模块上的保存与开始直播即可。<br>
-     <img src="pig/保存开始直播.png" width="900" height="150" /><br>
-
-     <br>打开快手直播伴侣:1.选择直播场景 2.点击添加素材  <br>
-     <img src="pig/快手1-2.png" width="800" height="500" /><br>
-
-     选择添加虚拟摄像头 选择c920
-
-     
-
-
-      
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-</p1>
-
-
-
-
-
+    <script>
+        // 简单的图片加载错误处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.alt = '图片加载失败，请检查路径: ' + this.src;
+                    this.style.border = '2px dashed #e74c3c';
+                    this.style.padding = '10px';
+                };
+            });
+            
+            // 自动调整代码块宽度
+            const codeBlocks = document.querySelectorAll('.code-block');
+            codeBlocks.forEach(block => {
+                if (block.scrollWidth > block.clientWidth) {
+                    block.style.fontSize = '14px';
+                }
+            });
+        });
+        
+        // 在移动设备上调整图片显示
+        function adjustForMobile() {
+            if (window.innerWidth <= 768) {
+                // 在移动设备上添加点击图片放大的功能
+                const images = document.querySelectorAll('.image-container img');
+                images.forEach(img => {
+                    img.style.cursor = 'zoom-in';
+                    img.onclick = function() {
+                        if (this.style.maxWidth === '100%') {
+                            this.style.maxWidth = 'none';
+                            this.style.width = '90vw';
+                            this.style.cursor = 'zoom-out';
+                            this.style.position = 'relative';
+                            this.style.zIndex = '1000';
+                        } else {
+                            this.style.maxWidth = '100%';
+                            this.style.width = 'auto';
+                            this.style.cursor = 'zoom-in';
+                            this.style.position = 'static';
+                            this.style.zIndex = 'auto';
+                        }
+                    };
+                });
+            }
+        }
+        
+        // 初始化调整
+        adjustForMobile();
+        
+        // 窗口大小改变时重新调整
+        window.addEventListener('resize', adjustForMobile);
+    </script>
 </body>
 </html>
